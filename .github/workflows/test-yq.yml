@@ -9,12 +9,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Get test
-        uses: mikefarah/yq@master
+        uses: mikefarah/yq@v4.40.5
         with:
           cmd: yq eval '.a' examples/data1.yaml
       - name: Write inplace test
         id: lookupSdkVersion
-        uses: mikefarah/yq@master
-        options: --user 1001
+        uses: mikefarah/yq@v4.40.5
         with:
           cmd: yq eval -i '.a.b = 5' examples/data1.yaml
