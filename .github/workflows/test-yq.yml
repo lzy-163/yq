@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Get test
         uses: mikefarah/yq@master
         with:
@@ -15,6 +15,5 @@ jobs:
       - name: Write inplace test
         id: lookupSdkVersion
         uses: mikefarah/yq@master
-        options: --user 1001
         with:
           cmd: yq eval -i '.a.b = 5' examples/data1.yaml
